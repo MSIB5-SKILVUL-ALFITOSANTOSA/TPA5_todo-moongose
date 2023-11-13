@@ -6,7 +6,7 @@ const todoRoute = require("./todo-route");
 const authRoute = require("./auth-route");
 
 route.get("/", (req, res) => {
-  res.json("ini dari express mongoose");
+  res.json("ini dari express mongoose dari route index.js");
 });
 
 route.use("/auth", authRoute);
