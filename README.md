@@ -15,9 +15,13 @@ API Endpoints
 Aplikasi ini menyediakan beberapa endpoint RESTful API untuk mengelola daftar Todo app pengguna. Di bawah ini adalah daftar endpoint yang tersedia:
 
 GET /todos: Mendapatkan daftar semua Todo app pengguna.
+
 GET /todos/:id: Mendapatkan detail Todo app berdasarkan ID.
+
 POST /todos: Membuat Todo app baru.
+
 PUT /todos/:id: Memperbarui Todo app berdasarkan ID.
+
 DELETE /todos/:id: Menghapus Todo app berdasarkan ID.
 
 2. Clone repositori ini ke komputer Anda:
