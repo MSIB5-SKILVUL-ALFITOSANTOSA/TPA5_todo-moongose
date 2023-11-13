@@ -26,4 +26,51 @@ module.exports = {
       message: "berhasil membuat data todo",
     });
   },
+
+  updateTodo: async (req, res) => {
+    const { id } = req.params;
+    let data = req.body;
+
+    try {
+      const todoId = req.params.id;
+
+      // Gunakan metode findByIdAndUpdate untuk mengupdate tugas berdasarkan ID
+      const updatedTodo = await Todo.findByIdAndUpdate(
+        todoId,
+        req.body, // Data yang ingin diupdate diambil dari permintaan (request)
+        { new: true } // Opsi { new: true } mengembalikan data yang telah diupdate
+      );
+
+      // Periksa apakah tugas ditemukan
+      if (!updatedTodo) {
+        return res.status(404).json({ message: "Tugas tidak ditemukan" });
+      }
+
+      // Respon dengan data tugas yang telah diupdate
+      res.json(updatedTodo);
+    } catch (error) {
+      console.error(error);
+      res
+        .status(500)
+        .json({ message: "Terjadi kesalahan saat mengupdate tugas" });
+    }
+  },
+
+  deleteTodo: async (req, res) => {
+    const { id } = req.params;
+
+    await Todo.findByIdAndRemove(id);
+
+    res.json({
+      message: "berhasil menghapus data todo",
+    });
+  },
+
+  deleteAllTodo: async (req, res) => {
+    await Todo.deleteMany({});
+
+    res.json({
+      message: "berhasil menghapus semua data todo",
+    });
+  },
 };

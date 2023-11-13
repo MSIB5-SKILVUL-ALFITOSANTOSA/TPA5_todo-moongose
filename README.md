@@ -14,6 +14,14 @@ Ini adalah backend untuk aplikasi ToDoList, yang menyediakan RESTful API untuk m
 API Endpoints
 Aplikasi ini menyediakan beberapa endpoint RESTful API untuk mengelola daftar Todo app pengguna. Di bawah ini adalah daftar endpoint yang tersedia:
 
+## Login dan Registrasi
+
+POST /auth/register: Mendaftarkan pengguna baru.
+
+POST /auth/login: Masuk ke akun pengguna.
+
+## Todos
+
 GET /todos: Mendapatkan daftar semua Todo app pengguna.
 
 GET /todos/:id: Mendapatkan detail Todo app berdasarkan ID.
