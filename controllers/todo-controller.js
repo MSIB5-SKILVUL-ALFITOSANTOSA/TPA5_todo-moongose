@@ -34,19 +34,19 @@ module.exports = {
     try {
       const todoId = req.params.id;
 
-      // Gunakan metode findByIdAndUpdate untuk mengupdate tugas berdasarkan ID
+      // Gunakan metode findByIdAndUpdate untuk mengupdate todo berdasarkan ID
       const updatedTodo = await Todo.findByIdAndUpdate(
-        todoId,
-        req.body, // Data yang ingin diupdate diambil dari permintaan (request)
+        id,
+        data, // Data yang ingin diupdate diambil dari permintaan (request)
         { new: true } // Opsi { new: true } mengembalikan data yang telah diupdate
       );
 
-      // Periksa apakah tugas ditemukan
+      // Periksa apakah todo ditemukan
       if (!updatedTodo) {
-        return res.status(404).json({ message: "Tugas tidak ditemukan" });
+        return res.status(404).json({ message: "todo tidak ditemukan" });
       }
 
-      // Respon dengan data tugas yang telah diupdate
+      // Respon dengan data todo yang telah diupdate
       res.json(updatedTodo);
     } catch (error) {
       console.error(error);
