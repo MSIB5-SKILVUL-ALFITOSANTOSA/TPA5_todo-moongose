@@ -6,7 +6,7 @@ const todoRoute = require("./todo_route");
 const authRoute = require("./auth_route");
 
 router.get("/", (req, res) => {
-  res.json("selamat datang di API todo-list IG : @alfitosans");
+  res.json("selamat datang di API todo-list...");
 });
 
 router.use("/auth", authRoute);
