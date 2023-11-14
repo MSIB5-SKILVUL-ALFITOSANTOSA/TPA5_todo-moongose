@@ -30,6 +30,12 @@ module.exports = {
   },
 
   register: async (req, res) => {
-    res.json("register");
+    let data = req.body;
+
+    await User.create(data);
+    res.json({
+      message: "success creating data user",
+      data: data,
+    });
   },
 };
