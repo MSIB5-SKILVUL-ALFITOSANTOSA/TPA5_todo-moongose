@@ -35,10 +35,32 @@ module.exports = {
     });
   },
 
+  updateTodoById: async (req, res) => {
+    const { id } = req.params;
+    const data = req.body;
+
+    //logic update
+
+    res.json({
+      message: "success update data by id",
+      data: data,
+    });
+  },
+
   deleteTodo: async (req, res) => {
     const { id } = req.params;
 
     const data = await Todo.findByIdAndRemove(id);
+
+    res.json({
+      message: "success getting data by id",
+      data: data,
+    });
+  },
+
+  deleteAllTodo: async (req, res) => {
+    const user = req.user;
+    const data = await Todo.deleteMany({ userID: user.id });
 
     res.json({
       message: "success getting data by id",
