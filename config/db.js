@@ -1,9 +1,9 @@
-const mongoose = require("mongoose");
+require('dotenv').config();
 
-const db_url =
-  process.env.DB_URL ||
-  "mongodb+srv://alfitosantosa:Defito02pg@cluster0.hhtznni.mongodb.net/TPA5_todo-moongose";
+const mongoose = require('mongoose');
 
-const db = mongoose.connect(db_url);
+const DB_URL = process.env.DB_URL || 'mongodb://localhost/express-mongoose';
+
+const db = mongoose.connect(DB_URL)
 
 module.exports = db;

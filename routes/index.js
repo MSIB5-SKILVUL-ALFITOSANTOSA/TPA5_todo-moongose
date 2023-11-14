@@ -1,19 +1,17 @@
-const express = require("express");
-const route = express.Router();
+const express = require('express');
+const router = express.Router();
 
-//mengumpulkan semua route
-const userRoute = require("./user-route");
-const todoRoute = require("./todo-route");
-const authRoute = require("./auth-route");
+const UserRoute = require('./user_route')
+const todoRoute = require('./todo_route')
+const authRoute = require('./auth_route')
 
-//route index
-route.get("/", (req, res) => {
-  res.json("ini dari express mongoose dari route index.js");
-});
+router.get("/", (req, res) => {
+    res.json("INI DARI MASA DEPAN")
+})
 
-//route lainnya
-route.use("/auth", authRoute);
-route.use("/users", userRoute);
-route.use("/todos", todoRoute);
+router.use("/auth", authRoute);
+router.use("/users", UserRoute);
+router.use("/todos", todoRoute);
 
-module.exports = route;
+
+module.exports = router;

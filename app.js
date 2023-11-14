@@ -1,21 +1,20 @@
 const express = require("express");
+const app = express();
 const cors = require("cors");
 
-const db = require("./config/db");
-const allRoutes = require("./routes");
-
-const app = express();
 const PORT = process.env.PORT || 3000;
-
-db.then(() => {
-  console.log("connected to mongodb");
-}).catch(() => {
-  console.log("gagal konek ke mongodb");
-});
+const db = require("./config/db");
+const allRoute = require("./routes");
 
 app.use(cors());
 app.use(express.json());
-app.use(allRoutes);
+app.use(allRoute);
+
+db.then(() => {
+  console.log("connected mongoDB");
+}).catch(() => {
+  console.log("lost connection mongoDB");
+});
 
 app.listen(PORT, () => {
   console.log("server running on port " + PORT);
